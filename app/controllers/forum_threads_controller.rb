@@ -25,6 +25,21 @@ class ForumThreadsController < ApplicationController
 		end
 	end
 
+
+	def edit
+		@thread = ForumThread.find(params[:id])
+	end
+
+	def update
+		@thread = ForumThread.find(params[:id])
+		@thread.user = current_user
+
+		if @thread.update(resource_params)
+			redirect_to root_path
+		else
+	end
+end
+	
 	private
 
 	def resource_params
