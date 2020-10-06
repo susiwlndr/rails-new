@@ -5,7 +5,7 @@ class ForumThreadsController < ApplicationController
 	def index
 		@threads = ForumThread.order(id: :desc)
 	end
-
+	# show
 	def show
 		@thread = ForumThread.find(params[:id])
 		@post = ForumPost.new
